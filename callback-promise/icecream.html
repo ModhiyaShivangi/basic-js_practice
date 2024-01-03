@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>hello</div>
+
+    <script>
+        let stocks = {
+    fruits : ["stroberry", "grapes", "banana", "apple"],
+    liquid : ["water", "ice"],
+    holder : ["cone", "cup", "stick"],
+    topings : ["chocolate", "peanuts"],
+};
+
+let is_shop_open = true;
+
+let order = ( time, work) => {
+    return new Promise ((resolve, reject)=> {
+        if(is_shop_open){
+            setTimeout(() => {
+                resolve(work());
+            }, time);
+        }else{
+            reject(console.log("our shop is closed"));
+        }
+    });
+};
+
+
+order(2000, () => console.log(`${ stocks.fruits[0] } was selected`))
+
+.then(() => {
+return order(0, () => console.log("production has started"))
+})
+
+.then (()=>{
+return order (2000,()=> console.log("fruits has been chopped"))
+})
+
+.then (()=>{
+return order (2000,()=> console.log(`${stocks.liquid[0]} and ${stocks.liquid[1]} was added`))
+})
+
+.then (()=>{
+return order (2000,()=> console.log("the machine was started"))
+})
+
+.then (()=>{
+return order (2000,()=> console.log(`icecream was placed on ${stocks.holder[0]}`))
+})
+
+.then (()=>{
+return order (3000,()=> console.log(`${stocks.topings[0]} was added as topings`))
+})
+
+.then (()=>{
+    return order (2000, ()=> console.log("icecream serve here"))
+})
+
+.catch (()=>{
+    console.log("customer left")
+})
+
+.finally (()=>{
+    console.log("day ended, shop is close")
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let order = (fruit_name, call_production) => {
+//     setTimeout(() => {
+//         console.log(`${stocks.fruits[fruit_name]} was selected `);
+//         call_production();
+//     }, 2000);
+// };
+
+// let production = () => {
+//     setTimeout(() => {
+//         console.log("production has started");
+//         setTimeout(() => {
+//             console.log("fruis has been chopped");
+//             setTimeout(() => {
+//                 console.log(`${stocks.liquid[0]} and ${stocks.liquid[1]} was added`);
+//                 setTimeout(() => {
+//                     console.log("the machine was started");
+//                     setTimeout(() => {
+//                         console.log(`icecream was placed on ${stocks.holder[0]}`);
+//                         setTimeout(() => {
+//                             console.log(`${stocks.topings[0]} was added as topings`);
+//                             setTimeout(() => {
+//                                 console.log("icecream serve here");
+//                             }, 2000);
+//                         }, 3000);
+//                     }, 2000);
+//                 }, 1000);
+//             }, 1000);
+//         }, 2000);
+//     }, 0);
+// };
+
+// order(0, production);
+
+
+
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

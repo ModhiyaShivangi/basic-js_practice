@@ -9,10 +9,13 @@
 <body>
     <h1>TO DO LIST</h1>
     <div class="container">
+
         <input id="inputfield" type="text" >
+
         <button id="addtodo">+</button>
-        <div class="to-dos" id= "todocontainer">
-        </div>
+
+        <p class="to-dos" id= "todocontainer">
+        </p>
     </div>
 
     <script>
@@ -27,6 +30,8 @@
             paragraph.innerText = inputfield.value;
             todocontainer.appendChild(paragraph);
             inputfield.value= "";
+
+            
             paragraph.addEventListener("click", ()=>{
                 paragraph.style.textDecoration= "line-through";
             })

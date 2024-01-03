@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .paragraph-styling{
+    margin: 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: red;
+}
+</style>
+<body>
+
+<input type="text" id="myText" >
+
+<button id="addlist" onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+      <script>
+     
+//   var x = document.getElementById("myText").value;
+//   document.getElementById("demo").innerHTML = x;
+
+
+
+
+
+        let InputName = document.getElementById('myText');
+        let SubmitButton = document.getElementById('addlist');
+        let ToDoList= document.getElementById('demo');
+
+        SubmitButton.addEventListener('click', function() {
+            var paragraph = document.createElement('p');
+            paragraph.classList.add('paragraph-styling')
+            paragraph.innerText = InputName.value;
+            ToDoList.appendChild(paragraph);
+            InputName.value = "";
+
+
+            paragraph.addEventListener('click', () =>{
+            paragraph.style.textDecoration = "line-through"
+                })
+                paragraph.addEventListener('dblclick', () =>{
+                    ToDoList.removeChild(paragraph);
+                })
+            })
+      </script>
+</body>
+</html>
